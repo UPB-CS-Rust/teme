@@ -7,7 +7,7 @@
 ### Reguli:
   1. Tema trebuie sa contina un fichier numit README.md care sa contina explicatii referitoare la modul de rezolvare al temei. (-0.1p)
   2. Tema trebuie implementata in Rust, utilizand **doar** functii din biblioteca **standard** de Rust. Orice alta implementare va conduce la anularea temei. (0p)
-       > **Exceptie**: Puteti utiliza biblioteca [chrono](https://docs.rs/chrono/latest/chrono/) pentru afisarea datei si a orei.
+       > **Exceptie**: Puteti utiliza biblioteca [chrono](https://docs.rs/chrono/latest/chrono/) pentru afisarea datei si a orei. Acesta trebuie adaugat in `Cargo.toml`.
 
 ### Copiat
 Tema este individual. Orice tentativa de copiat determina alocarea punctajului **0p** pentru teme. Utilizam un sistem automat de detectare a copiatului. Daca avem dubii legate de implementarea voastra, va vom adresa intrebari suplimentare in legatura cu tema.
