@@ -1,6 +1,7 @@
 # Rustybox
 ### Deadline: **05/11/2023 23:59**
 ### Puteti gasi aici assignmentul pentru tema: [Classroom assignment](https://classroom.github.com/a/iYoQzOhX)
+### Pentru intrebari legate de tema, va rugam sa deschideti un issue la [UPB-CS-Rust/teme](https://github.com/UPB-CS-Rust/teme) cu titlul: [rustybox] <title issue>. (titlul issue-ului e ce scrieti voi).
 ### Cunostiinte evaluate:
   * Utilizarea limbajului Rust
   * Intelegerea modului de functionare a liniei de comanda
