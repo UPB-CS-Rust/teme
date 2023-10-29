@@ -10,6 +10,9 @@
   1. Tema trebuie sa contina un fisier numit README.md care sa contina explicatii referitoare la modul de rezolvare al temei. (-0.1p)
   2. Tema trebuie implementata in Rust, utilizand **doar** functii din biblioteca **standard** de Rust. Orice alta implementare va conduce la anularea temei. (0p)
        > **Exceptie**: Puteti utiliza biblioteca [chrono](https://docs.rs/chrono/latest/chrono/) pentru afisarea datei si a orei. Acesta trebuie adaugata in `Cargo.toml`.
+       <br>
+       
+       > **Atentie!**: Nu se pot utiliza biblioteci pentru executare de comenzi.
 
 ### Copiat
 Tema este individual. Orice tentativa de copiat determina alocarea punctajului **0p** pentru teme. Utilizam un sistem automat de detectare a copiatului. Daca avem dubii legate de implementarea voastra, va vom adresa intrebari suplimentare in legatura cu tema.
@@ -194,3 +197,32 @@ Comenzile suportate de aplicatia mini-busybox sunt:
         ./rustybox chmod a-rx file
             
       ```
+### Bonus
+ * **grep [-i] regex nume_fisier** - Returneaza toate liniile fisierului care contin expresia regulata.
+     * -i - Returneaza toate liniile fisierului care **nu** contin expresia regulata.
+     <br>
+
+     *Exemplu*
+    
+      ```
+       $ ./rustybox grep '[0-9]+' File
+         this line 99
+         this line is another 7
+  
+      ```
+ * **ls**
+     * -l - Afiseaza toate informatiile legate de fisiere
+     <br>
+
+     *Exemplu*
+    
+      ```
+      $ ./rustybox ls -l
+      drwxr-xr-x alexandru staff 960 Feb 12 22:40 Desktop
+      -rw-r--r-- alexandru staff 372944 Nov 29  2020 Title Hello Wyliodrin STUDIO.jpg
+      
+      # file_type (-, l - link, d - directory) properties user group size modified_date name
+      $ ./rustybox ls -l Desktop
+      drwxr-xr-x alexandru staff 960 Feb 12 22:40 Desktop
+  
+      ```      
