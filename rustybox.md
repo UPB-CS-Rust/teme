@@ -183,7 +183,7 @@ Comenzile suportate de aplicatia mini-busybox sunt:
             
       ```
 
- * **chmod permisiuni fisier/director** - Schimba bitii de permisiune (rwx) al unui fisier/director [doc](https://linux.die.net/man/1/touch). In caz de eroare se va intoarce va intoarce valoarea -25 (valoarea 231 va fi afisata in terminal).
+ * **chmod permisiuni fisier/director** - Schimba bitii de permisiune (rwx) al unui fisier/director [doc](https://linux.die.net/man/1/chmod). In caz de eroare se va intoarce va intoarce valoarea -25 (valoarea 231 va fi afisata in terminal).
      Permisiunile pot fi specificate in 2 moduri:
       1. numeric: un numar format din 3 cifre, fiecare reprezantand o valoare pe 3 biti: ex: 650
       2. adaugand/stergand permisiuni specifice: pentru fiecare din cele 3 categorii (user, group others0 putem adauga sau sterge permisiuni. Categoriile sunt u - user, g - group, o - other, a - all. Formatul generic este: **u/g/o/a +/- r/w/x**.
