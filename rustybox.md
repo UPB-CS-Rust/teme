@@ -85,14 +85,13 @@ Comenzile suportate de aplicatia mini-busybox sunt:
        ./rustybox mkdir my_drectory1 my_drectory2 my_drectory3
       
       ```
- * **mv sursa destinatie** - Deplaseaza/Redenumeste fisierul/directorul sursa la cel destinatie [doc](https://linux.die.net/man/1/cat). In caz de eroare se va intoarce va intoarce valoarea -40 (valoarea 216 va fi afisata in terminal)
+ * **mv sursa destinatie** - Deplaseaza/Redenumeste fisierul/directorul sursa la cel destinatie [doc](https://linux.die.net/man/1/mv). In caz de eroare se va intoarce va intoarce valoarea -40 (valoarea 216 va fi afisata in terminal)
      <br>
      
      *Exemplu*
     
       ```
-       ./rustybox mkdir my_drectory
-       ./rustybox mkdir my_drectory1 my_drectory2 my_drectory3
+       ./rustybox mv source destination
       
       ```
 
