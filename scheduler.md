@@ -1,5 +1,5 @@
 # Scheduler
-### Deadline: **03/12/2023 23:59**
+### Deadline: **05/12/2023 23:59**
 ### Puteți găsi aici assignment-ul pentru tema: [Classroom assignment](https://classroom.github.com/a/2eN9hsMw)
 ### Pentru întrebări legate de temă, vă rugăm să deschideți un issue la [UPB-CS-Rust/teme](https://github.com/UPB-CS-Rust/teme) cu titlul: `[scheduler] <title issue>`. (titlul issue-ului e ce scrieți voi).
 ### Cunostiinte evaluate:
