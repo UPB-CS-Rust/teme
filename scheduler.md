@@ -9,6 +9,7 @@
 ### Reguli:
   1. Tema trebuie sa conțină un fișier numit README.md care să conțină explicații referitoare la modul de rezolvare al temei. (-0.1p)
   2. Tema trebuie implementată în Rust, utilizând **doar** funcții din biblioteca **standard** de Rust. Orice altă implementare va conduce la anularea temei. (0p)
+  3. Puteți folosi orice structuri de date doriți pentru reprezentarea proceselor și a cozilor, irelevant dacă sunt sau nu eficiente
 
 ### Copiat
 Tema trebuie rezolvată individual. Orice tentativă de copiat duce la acordarea punctajului **0p** pentru teme. Utilizăm un sistem automat de detectare a copiatului. Dacă avem dubii legate de implementarea voastră, vă vom adresa întrebări suplimentare în legătură cu tema.
