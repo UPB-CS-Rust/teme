@@ -23,9 +23,9 @@ Scopul acestei teme este de a crea un planificator de procese. Trebuie să folos
 
 Planificatorul face parte din sistemul de operare. Deoarece scrierea codului în sistemul de operare este dificilă, în spațiul utilizatorului a fost implementat un simulator de procese.
 
-Implementați un planificator de procese. Acesta va simula un planificator de procese preventiv, într-un sistem uniprocesor, care utilizează algoritmii `Round Robin`, `Round Robin` cu priorități și algoritm de programare `CFS` (Completely Fait Scheduler).
+Implementați un planificator de procese. Acesta va simula un planificator de procese preemptive, într-un sistem uniprocesor, care utilizează algoritmii `Round Robin`, `Round Robin` cu priorități și algoritm de programare `CFS` (Completely Fait Scheduler).
 
-Pentru fiecare planificator, trebuie să implementați `trait`-ul `Scheduler``. Aceasta înseamnă implementarea tuturor celor trei funcții:
+Pentru fiecare planificator, trebuie să implementați `trait`-ul `Scheduler`. Aceasta presupune implementarea tuturor celor trei funcții:
   - `next`- următorul proces de executat
   - `stop`- primiți informații despre motivul pentru care procesul s-a oprit
   - `list`- returnează starea proceselor
@@ -38,7 +38,7 @@ Pentru aceasta, puteți crea fișiere separate pentru fiecare planificator și l
 
 Într-un sistem real, pentru controlul execuției, contorizarea timpului de execuție al unui proces se realizează la fiecare întrerupere de ceas.
 
-Pentru ușurința implementării, șablonul temă va simula un sistem real ca acesta:
+Pentru ușurința implementării, șablonul de temă va simula un sistem real ca acesta:
   - Sistemul simulat va folosi timpul virtual (logic) independent de timpul real pentru a număra timpul de operare pe procesor.
   - Veți considera că o instrucțiune durează o singură perioadă de ceas (unitate logică de timp).
   - Fiecare dintre funcțiile prezentate mai sus reprezintă o singură instrucțiune executabilă de către un proces la un moment dat.
@@ -61,15 +61,15 @@ Această enumerare conține stările posibile ale unui proces pentru simularea n
 ##### enum `SchedulingDecision`
 
 Această enumerare conține acțiunea pe care procesul o cere de la  sistemul de operare. De asemenea, reprezintă valoarea întoarsă de funcția `Scheduler::next`, pe care trebuie să o implementați:
-  - `Run {pid, timeslice}` - Rulați procesul cu PID pid pentru un numărm maxim de `timeslice` unități de timp
+  - `Run {pid, timeslice}` - Rulați procesul cu PID-ul pid pentru un numărm maxim de `timeslice` unități de timp
   - `Sleep (time_units)` - Suspendați procesul de la planificare (starea `Waiting`) pentru cel puțin `time_units` unități de timp
   - `Deadlock` - Sistemul de operare nu mai poate continua, deoarece toate procesele așteaptă evenimente. În acest caz, niciun alt proces nu poate trimite evenimente, ceea ce înseamnă că toate procesele vor aștepta la nesfârșit.
-  - `Panic` - Procesul cu PID-ul 1 sa oprit.
+  - `Panic` - Procesul cu PID-ul 1 s-a oprit.
   - `Done` - Nu mai sunt procese de programat.
 
 ##### enum `StopReason`
 
-Această enumerare conține motivul pentru care un proces s-a încheiat și sistemul de operare a rulat planificator:
+Această enumerare conține motivul pentru care un proces s-a încheiat și sistemul de operare a rulat planificatorul:
   - `Syscall {syscall, remaining}` - Procesul a trimis un apel de sistem `Syscall`; `remaining` reprezintă numărul de unități de timp pe care procesul nu le-a folosit.
   - `Expired` - intervalul de timp alocat procesului a expirat și procesul a fost preemptat
 
@@ -80,7 +80,7 @@ Această enumerare conține apelurile de sistem pe care procesele le fac către 
   - `Sleep(amount_of_time)` - Cereți planificatorului să suspende procesul pentru o anumită perioadă de timp
   - `Wait(event_number)` - Procesul va aștepta în starea `ProcessState::Waiting` până când un alt proces emite un apel de sistem `Syscall::Signal` cu acest număr de eveniment.
   - `Signal(event_number)` - Toate procesele care așteaptă acest eveniment vor fi trezite și plasate în starea `ProcessState::Ready`.
-  - `Exit` - Cereți planificatorului să încheie procesul. Procesul nu va mai fi programat niciodată și va fi eliminat din lista de procese pe care programatorul le urmărește.
+  - `Exit` - Cereți planificatorului să încheie procesul. Procesul nu va mai fi programat niciodată și va fi eliminat din lista de procese pe care planificatorul le urmărește.
 
 ##### enum `SyscallResult`
 
@@ -113,7 +113,7 @@ Simulatorul folosește următoarele funcții:
   - `sleep` - Trimiteți un apel de sistem `Syscall::Sleep`
   - `exit` - Oprește procesul; procesul informează sistemul de operare că s-a terminat de executat
 
-> Primul apel de sistem primit de către planificator trebuie să fie un `fork` , pentru a crea primul proces, altfel se va emkite o eroare.
+> Primul apel de sistem primit de către planificator trebuie să fie un `fork` , pentru a crea primul proces, altfel se va emite o eroare.
 
 ### Algoritmii de planificare
 
@@ -133,7 +133,7 @@ Acest algoritm este identic cu cel anterior, cu următoarea modificare: priorita
 
 Prioritatea nu poate fi mai mică de 0 și nici mai mare de 5.
 
-Pentru planioficare, sunt luate în considerare numai procesele cu cea mai mare prioritate. Dacă niciunul dintre ele nu poate fi planificat (este în starea waiting), se vor lua în considerare procesele cu prioritate mai mică. Dacă niciunul nu poate fi planificat nici aici, se vor lua în considerare procesele cu prioritatea și mai mică, etc.
+Pentru planificare, sunt luate în considerare numai procesele cu cea mai mare prioritate. Dacă niciunul dintre ele nu poate fi planificat (este în starea waiting), se vor lua în considerare procesele cu prioritate mai mică. Dacă niciunul nu poate fi planificat nici aici, se vor lua în considerare procesele cu prioritatea și mai mică, etc.
 
 > Pentru compararea prioritățiilor dintre processe, se va implementa `trait`-ul `PartialOrd`.
 
