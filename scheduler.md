@@ -50,8 +50,8 @@ Această bibliotecă oferă `trait`-urile și structurile necesare pentru implem
 ##### enum `ProcessState`
 
 Această enumerare conține stările posibile ale unui proces pentru simularea noastră:
-  - `Ready` - Procesul așteaptă să fie programat
-  - `Running` - Procesul este programat
+  - `Ready` - Procesul așteaptă să fie planificat
+  - `Running` - Procesul este planificat
   - `Waiting` - Așteaptă după un eveniment sau o operație I/O
 
 ![Process States](extra/process_states.png)
@@ -63,7 +63,7 @@ Această enumerare conține acțiunea pe care procesul o cere de la sistemul de 
   - `Sleep (time_units)` - Suspendați procesul de la planificare (trecere în starea `Waiting`) pentru cel puțin `time_units` unități de timp
   - `Deadlock` - Sistemul de operare nu mai poate continua, deoarece toate procesele așteaptă evenimente. În acest caz, niciun alt proces nu poate trimite evenimente, ceea ce înseamnă că toate procesele vor aștepta la nesfârșit.
   - `Panic` - Procesul cu PID-ul 1 s-a oprit.
-  - `Done` - Nu mai sunt procese de programat.
+  - `Done` - Nu mai sunt procese de planificat.
 
 ##### enum `StopReason`
 
@@ -78,14 +78,14 @@ Această enumerare conține apelurile de sistem pe care procesele le fac către 
   - `Sleep(amount_of_time)` - Cereți planificatorului să suspende procesul pentru o anumită perioadă de timp
   - `Wait(event_number)` - Procesul va aștepta în starea `ProcessState::Waiting` până când un alt proces emite un apel de sistem `Syscall::Signal` cu acest număr de eveniment.
   - `Signal(event_number)` - Toate procesele care așteaptă acest eveniment vor fi trezite și plasate în starea `ProcessState::Ready`.
-  - `Exit` - Cereți planificatorului să încheie procesul. Procesul nu va mai fi programat niciodată și va fi eliminat din lista de procese pe care planificatorul le urmărește.
+  - `Exit` - Cereți planificatorului să încheie procesul. Procesul nu va mai fi planificat niciodată și va fi eliminat din lista de procese pe care planificatorul le urmărește.
 
 ##### enum `SyscallResult`
 
 Această enumerare conține rezultatul întors de către un apel de sistem:
   - `Pid(pid)` - PID-ul noului proces, este întors doar după un apel de sistem `Syscall::Fork`.
   - `Succes` - Apelul de sistem s-a executat cu succes.
-  - `NoRunningProcess` - Apelul de sistem a fost emis când nu a fost programat niciun proces.
+  - `NoRunningProcess` - Apelul de sistem a fost emis când nu a fost planificat niciun proces.
 
 #### Bibliotecta `processor`
 
