@@ -135,6 +135,8 @@ Prioritatea nu poate fi mai mică de 0 și nici mai mare de 5.
 
 Pentru planioficare, sunt luate în considerare numai procesele cu cea mai mare prioritate. Dacă niciunul dintre ele nu poate fi planificat (este în starea waiting), se vor lua în considerare procesele cu prioritate mai mică. Dacă niciunul nu poate fi planificat nici aici, se vor lua în considerare procesele cu prioritatea și mai mică, etc.
 
+> Pentru compararea prioritățiilor dintre processe, se va implementa `trait`-ul `PartialOrd`.
+
 #### Completely Fair Scheduler (CFS)
 
 Acest algoritm este folosit de Linux. Puteți găsi mai multe detalii la [CFS: Perfectly Fair Process Scheduling in Linux](https://translate.google.com/website?sl=fr&tl=ro&hl=en-US&client=webapp&u=https://opensource.com/article/19/2/fair-scheduling-linux). Varianta implementată aici va ține cont de:
@@ -142,3 +144,6 @@ Acest algoritm este folosit de Linux. Puteți găsi mai multe detalii la [CFS: P
   - durata de timp variază în funcție de numărul de procese, timpul real este timpul inițial împărțit la numărul de procese, timpul de referință nu poate fi mai mic de 1.
 
 > După fiecare execuție a unui proces vom adăuga numărul de unități de procesare executate de proces la `virtualruntime` (valoarea este de fapt `quantum_time - process.quantum`).
+
+> Pentru compararea `virtualruntime`-ului dintre processe, se va implementa `trait`-ul `PartialOrd`.
+> Pentru adăugarea de `virtualruntime` se va implementa `trait`-ul `Add`.
