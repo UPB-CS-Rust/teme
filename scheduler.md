@@ -137,7 +137,7 @@ Pentru planificare, sunt luate în considerare numai procesele cu cea mai mare p
 
 #### Completely Fair Scheduler (CFS)
 
-Acest algoritm este folosit de Linux. Puteți găsi mai multe detalii la [CFS: Perfectly Fair Process Scheduling in Linux](https://translate.google.com/website?sl=fr&tl=ro&hl=en-US&client=webapp&u=https://opensource.com/article/19/2/fair-scheduling-linux). Varianta implementată aici va ține cont de următoarele aspecte:
+Acest algoritm este folosit de Linux. Puteți găsi mai multe detalii la [CFS: Perfectly Fair Process Scheduling in Linux](https://opensource.com/article/19/2/fair-scheduling-linux). Varianta implementată aici va ține cont de următoarele aspecte:
   - timpul virtual
   - durata de timp variază în funcție de numărul de procese, timpul real este timpul inițial împărțit la numărul de procese, timpul de referință nu poate fi mai mic de 1.
 
