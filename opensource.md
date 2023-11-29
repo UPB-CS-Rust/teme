@@ -26,3 +26,4 @@ A gasi un proiect si a contribui la el nu este mereu foarte simplu. Am alcatuit 
 - noi va vom da feedback;
 - cand sunteti gata sa trimiteti contributia in upstream, deschideti un pull request catre repository-ul proiectului original.
 
+Daca aveti alte idei de proiecte, va rog sa ne scrieti pe Teams pentru a putea clona si noi acele repository-uri.
